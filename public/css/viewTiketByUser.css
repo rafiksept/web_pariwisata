@@ -1,0 +1,73 @@
+.card-tiket {
+    display: flex;
+
+}
+
+.gambar {
+    height: 150px;
+    background-image: url('/assets/public/image/pantai.jpg');
+    width: 100%;
+}
+
+.card-tiket{
+    width: 330px;
+    height: 100%;
+    margin-right: 20px;
+    
+}
+
+.detail-tiket{
+    height: 20%;
+    width: 100%;
+    background-color: #ffc107;
+    padding: 10px 15px;
+    display: flex;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.location-tiket{
+    height: 30%;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.list-detail {
+    margin-right: 10px;
+}
+
+.detail-tiket .penjelasan{
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.detail-tiket .isi{
+    font-size: 12px;
+    font-weight: bolder;
+    margin: 0px;
+}
+
+.location-tiket .penjelasan{
+    margin: 0px;
+    font-weight: 800;
+    color: grey;
+}
+
+.location-tiket .isi{
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0px;
+    line-height: 1;
+}
+
+.lebih-detail{
+    margin-top: 10px;
+}
+
+.lebih-detail button{
+    background-color:#ffc107 ;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px;
+}

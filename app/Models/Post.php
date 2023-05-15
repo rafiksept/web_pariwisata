@@ -20,16 +20,4 @@ class Post extends Model implements HasMedia
         return $this->belongsTo(TouristAttraction::class);
     }
 
-    public function tags(){
-        return $this->belongsToMany(Tags::class);
-    }
-
-    public static function boot() {
-        parent::boot();
-
-        static::deleting(function($post) { // before delete() method call this
-             $post->tags()->detach();
-        });
-    }
-
 }

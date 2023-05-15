@@ -15,17 +15,17 @@
       <tr>
         <td>Role</td>
         <td>:</td>
-        <td>{{$details['role']}}</td>
+        <td>{{$details['first_name']}}</td>
       </tr>
       <tr>
         <td>Website</td>
         <td>:</td>
-        <td>{{$details['website']}}</td>
+        <td>{{$details['last_name']}}</td>
       </tr>
       <tr>
         <td>Tanggal Register</td>
         <td>:</td>
-        <td>{{$details['datetime']}}</td>
+        <td>{{$details['phone_number']}}</td>
       </tr>
     </table>
 

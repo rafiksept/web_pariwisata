@@ -1,0 +1,68 @@
+.title-promo{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-home{
+    width: 800px;
+    height: 300px;
+}
+
+.detail-promo{
+    text-align: center;
+    width: 800px;
+
+}
+
+.detail-promo h5, .kupon h5{
+    font-weight: bold;
+}
+
+.kupon .card{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.kupon .card h6{
+    font-weight: bolder;
+}
+
+.kupon .card input{
+    padding: 3px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.kupon .card p{
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.kode-promo button{
+    background-color: white;
+    border: none;
+    font-weight: bolder;
+
+
+}
+
+#copy-success{
+    color: green;
+}
+
+.tombol {
+    margin-left: 20px;
+    margin-top: 10px;
+    
+
+}
+
+.tombol a{
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: bolder;
+}

@@ -17,12 +17,12 @@
             <div class="success-message">
                 {{session('message')}}
             </div>
-            @endif
-            @if (count($errors) > 0)
-                @foreach ($errors->all() as $error)
-                <p class="error-message">{{ $error }}</p>
-                @endforeach
-            @endif
+        @endif
+        @if (count($errors) > 0)
+            @foreach ($errors->all() as $error)
+            <p class="error-message">{{ $error }}</p>
+            @endforeach
+        @endif
         @csrf
             <div class="txt_field">
                 <input type="email" name="email" required>
@@ -71,7 +71,7 @@
                    </div>
                    <input type="submit" value="Register">
                    <div class="signup_link">
-                       a member? <a href="{{url('/')}}">Login</a>
+                       a member? <a href="{{url('/login')}}">Login</a>
                    </div>
         </form>
     </div>

@@ -1,0 +1,74 @@
+
+.container-ticket{
+    width: 100%;
+}
+
+.content-ticket{
+    width: 80%;
+    height: 100%;
+}
+
+
+.box-content h6{
+    color: rgb(129, 129, 129);
+}
+
+.picture-detail{
+    width: 150px;
+    height: 150px;
+}
+
+.attraction-detail{
+    font-size: 18px;
+}
+
+.ticket-list{
+    margin-top: -10px;
+}
+
+.ticket-list path{
+    fill: rgb(103, 103, 103) ;
+}
+
+.ticket-list p{
+    font-size: 12px;
+    margin-left: 8px;
+    color:rgb(103, 103, 103) ;
+}
+
+.form-group label{
+    font-weight: bold;
+}
+
+.form-group small{
+    font-weight:500;
+    font-size: 12px;
+    color: rgb(139, 137, 137);
+}
+
+.nominal-harga h4{
+    color: #FF5E1F;
+}
+
+.tombol-pembayaran{
+    background-color: #FF5E1F ;
+    color: white;
+    padding: 7px 28px;
+    font-weight:700;
+    border-radius: 7px;
+    border: 0;
+    font-size: 20px;
+}
+
+.tanggal-pemesanan {
+    border: 0px;
+    color: rgb(103, 103, 103);
+}
+
+.tanggal-pemesanan:focus{
+    outline: none;
+}
+
+.card{
+    height: 100%;
+}

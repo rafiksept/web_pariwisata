@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table -> string('name');
             $table -> string('location');
+            $table -> string('definition');
+            $table -> text('description');
             $table -> integer('ticket');
             $table -> string('slug') -> unique();
+            $table-> longText('image_post');
             $table->timestamps();
         });
     }

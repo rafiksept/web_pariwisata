@@ -1,0 +1,67 @@
+.chat-card{
+    height: 450px;
+    width: 350px;
+    overflow: hidden;
+}
+
+.head-chat  span{
+    font-weight:700;
+    color: rgb(255, 255, 255);
+}
+
+.body-chat{
+    background-color: rgb(249, 246, 246);
+    overflow-y: scroll;
+}
+
+.speech-bubble {
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background: #ffffff;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, 0.226), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.139);
+ }
+.speech-bubble span{
+    font-size: 10px;
+
+}
+
+.speech-bubble .pertanyaan-pertama{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.171);
+}
+
+.speech-bubble .pertanyaan {
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.171);
+}
+
+.speech-bubble .pertanyaan.terakhir{
+    border-bottom: 0px;
+}
+
+.clock span{
+    color: rgba(128, 128, 128, 0.452);
+}
+
+.speech-bubble-user {
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background: rgb(216, 241, 255);
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, 0.226), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.139);
+ }
+ .speech-bubble-user span{
+    font-size: 10px;
+
+}
+
+.jawaban p{
+    font-size: 10px;
+    padding: 4px;
+}

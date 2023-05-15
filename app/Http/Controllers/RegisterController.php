@@ -48,9 +48,9 @@ class RegisterController extends Controller
 
         $details = [
             'username' => $request->name,
-            'role' => 'tourist',
-            'website' => 'www.ayongoding.com',
-            'datetime' => date('Y-m-d H:i:s'),
+            'first_name' =>$request -> first_name ,
+            'last_name' =>$request -> last_name ,
+            'phone_number' =>$request -> phone_number,
             'url' => request()->getHttpHost().'/register/verify/'.$str
         ];
 

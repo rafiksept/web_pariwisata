@@ -18,6 +18,9 @@ use Closure;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\RichEditor;
 
 class TouristAttractionResource extends Resource
 {
@@ -37,7 +40,10 @@ class TouristAttractionResource extends Resource
                 })-> required(),
                 TextInput::make('slug') ->required(),
                 TextInput::make('location') ->required(),
+                TextInput::make('definition') ->required(),
+                RichEditor::make('description') ->required(),
                 TextInput::make('ticket') ->required() -> numeric(),
+                FileUpload::make('image_post')->image() ->required()
                 ])
             ]);
     }
@@ -51,6 +57,7 @@ class TouristAttractionResource extends Resource
                 TextColumn::make('slug')->limit(50),
                 TextColumn::make('location'),
                 TextColumn::make('ticket'),
+                ImageColumn::make('image_post'),
             ])
             ->filters([
                 //
