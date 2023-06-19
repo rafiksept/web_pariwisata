@@ -29,15 +29,7 @@
                     <div class="card-body px-3 py-4 d-flex justify-content-end flex-column h-100  " >
                         <h5 class="card-title judul-wisata" >{{ $event -> name }}</h5>
                         {{-- <p class="card-text text-thumbnail">{!! \Illuminate\Support\Str::limit($tourist_attraction -> definition, 100, $end='...') !!}</p> --}}
-                        <div class="information">
-                          <div class="location information-content">
-                              {{-- <img src="{{asset('image/lokasi.png')}}"  alt="lokasi" class="information-picture"> --}}
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill information-picture" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                              </svg>
-                              <p>{{ $event -> location }}</p>
-                          </div>
-                        </div>
+                        
                         <div class="button-detail">
                           <a href="{{route('detailEvent',['id' => $event -> id])}}" class="btn btn-primary check-detail ">Eksplorasi &#62;</a>
                         </div>

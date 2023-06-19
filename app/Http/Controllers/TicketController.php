@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TouristAttraction;
 use App\Models\Ticket;
-use App\Models\Promo;
 use App\Models\ProofOfPayment;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -25,17 +24,9 @@ class TicketController extends Controller
 
         $tourist_attractions = TouristAttraction::find($id);
 
-        $promo = $_GET['promo'];
-
-        $promoDB = Promo::where('kode_promo', $promo) -> get();
-
-        if (count($promoDB) != 0 and ($promoDB[0] -> tourist_attraction_id == $id) and ($promoDB[0] -> minimal_promo >= $pax) and (now() <= $promoDB[0] -> expired)) {
-            $kupon = $promoDB[0];
-        } else {
-            $kupon  = "Not Available";
-        }
         
-        return view('addTicket' ,['tourist_attractions' => $tourist_attractions, 'pax' => $pax, 'edited' => false, 'promo' =>$kupon]);
+        
+        return view('addTicket' ,['tourist_attractions' => $tourist_attractions, 'pax' => $pax, 'edited' => false]);
     }
 
     public function createOrder(Request $request, $id, $pax){
@@ -72,43 +63,16 @@ class TicketController extends Controller
 
         $tourist_attractions = TouristAttraction::find($id);
 
-        $promo = $_GET['promo'];
-        $promoDB = Promo::where('kode_promo', $promo) -> get();
-
-        if (count($promoDB) != 0 and ($promoDB[0] -> tourist_attraction_id == $id) and ($promoDB[0] -> minimal_promo >= $pax) and (now() <= $promoDB[0] -> expired)) {
-            $kupon = $promoDB[0];
-            $proofKupon = $promoDB[0] -> diskon;
-        } else {
-            $kupon  = null;
-            $proofKupon = 0;
-        }
-
         ProofOfPayment::create([
             'uuid' => $uuid,
-            'price' => $tourist_attractions -> ticket * $pax * (100 - $proofKupon) /100
+            'price' => $tourist_attractions -> ticket * $pax
         ]);
 
-        $pop_id = DB::table('proof_of_payments')->where('uuid', $uuid)->value('id');  
+        $pop_id = DB::table('proof_of_payments')->where('uuid', $uuid)->value('id'); 
+
+        $tiket = $request -> all();
         
-        if (count($promoDB) != 0 and ($promoDB[0] -> tourist_attraction_id == $id) and ($promoDB[0] -> minimal_promo >= $pax) and (now() <= $promoDB[0] -> expired)) {
-            $tiket = $request->all();
-        foreach ($tiket['name'] as $key => $value) {
-            $str = Str::random(10);
-            Ticket::create([
-                'tourist_attraction_id' => $id,
-                'user_id' =>  Auth::user()->id,
-                'uuid' => $str,
-                'name' => $value,
-                'email' => $tiket['email'][$key],
-                'phone_number' => $tiket['phone_number'][$key],
-                'tanggal_pemesanan' => $request -> input('tanggal-pemesanan'),
-                'promo_id' => $kupon -> id,
-                'proof_of_payment_id' => $pop_id
-            ]);
-        }
-        } else {
-            $tiket = $request->all();
-        foreach ($tiket['name'] as $key => $value) {
+         foreach ($tiket['name'] as $key => $value) {
             $str = Str::random(10);
             Ticket::create([
                 'tourist_attraction_id' => $id,
@@ -119,14 +83,7 @@ class TicketController extends Controller
                 'phone_number' => $tiket['phone_number'][$key],
                 'tanggal_pemesanan' =>  $request -> input('tanggal-pemesanan'),
                 'proof_of_payment_id' => $pop_id
-            ]);
-        }
-        }
-
-        
-
-        
-
+            ]);}
         return redirect('pesan-tiket/'.$id.'/'.$pax.'/'.$uuid);
 
         
@@ -149,15 +106,9 @@ class TicketController extends Controller
 
         $pax_order= DB::table('tickets')->where('proof_of_payment_id', $pop_id[0] -> id) -> get();
         
-        $promoDB = DB::table('promos')->where('id', $pax_order[0] -> promo_id) -> get(); 
 
-        if (count($promoDB) != 0 and ($promoDB[0] -> tourist_attraction_id == $id) and ($promoDB[0] -> minimal_promo >= $pax) and (now() <= $promoDB[0] -> expired) ){
-            $kupon = $promoDB[0];
-        } else {
-            $kupon  = "Not Available";
-        }
 
-        return view('addTicket' ,['id' => $id, 'pax' => $pax, 'code' => $code, 'pop_id' => $pop_id, 'pax_order' => $pax_order, 'tourist_attractions' => $tourist_attractions, 'edited' => true, 'promo' => $kupon]);
+        return view('addTicket' ,['id' => $id, 'pax' => $pax, 'code' => $code, 'pop_id' => $pop_id, 'pax_order' => $pax_order, 'tourist_attractions' => $tourist_attractions, 'edited' => true]);
     }
 
     public function actionEditTicket(Request $request,$id, $pax, $code){

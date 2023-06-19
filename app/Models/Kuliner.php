@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Kuliner extends Model
 {
     use HasFactory;
 
-    protected $fillable =['name','description','slug','image_post'];
+    protected $fillable =['name','definition','description','image_post'];
+
 }

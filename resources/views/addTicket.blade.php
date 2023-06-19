@@ -19,13 +19,9 @@
         @if ($edited)
         <form class="w-100" action="{{route('actionEditTiket',['id' => $tourist_attractions -> id, 'pax' => $pax, 'code' => $code])}}" method="POST">
         @else
-        @if ($promo == "Not Available")
-        <form class="w-100" action="{{route('createOrder',['id' => $tourist_attractions -> id, 'pax' => $pax])}}?promo=" method="POST">
-        @else
-        <form class="w-100" action="{{route('createOrder',['id' => $tourist_attractions -> id, 'pax' => $pax])}}?promo={{$promo -> kode_promo}}" method="POST">
+        <form class="w-100" action="{{route('createOrder',['id' => $tourist_attractions -> id, 'pax' => $pax])}}" method="POST">
         @endif
-       
-        @endif
+        
 
           @csrf
           <h3 class="mb-3">Pesanan Kamu</h3>
@@ -147,29 +143,6 @@
               
           @endif
 
-          <h5 class="mb-3 mt-4">Kode Promo</h5>
-          <div class="card " style="width: 100%">
-            <div class="card-body px-7">
-              
-              <div class="price-content d-flex flex-row justify-content-between px-2">
-                
-                <div class="harga-title">
-                  <h5>Kode Promo</h5>
-                </div>
-                <div class="nominal-harga ">
-                  
-                  @if ($promo == "Not Available")
-                  <h4>{{$promo}}</h4>
-                  @else
-                  <h4 style=" margin-bottom:0px;">{{$promo -> kode_promo}}</h4>
-                  @endif
-                  
-                
-                </div>
-              </div>
-            </div>
-          </div>
-
           <h5 class="mb-3 mt-4">Total Harga</h5>
           <div class="card " style="width: 100%">
             <div class="card-body px-7">
@@ -180,12 +153,9 @@
                   <h5>Harga  Tiket</h5>
                 </div>
                 <div class="nominal-harga d-flex flex-row align-items-center ">
-                  @if ($promo == "Not Available")
+            
                   <h4>Rp. {{ $tourist_attractions -> ticket * $pax }}</h4>
-                  @else
-                  <p class="text-decoration-line-through" style="margin-right:5px; margin-bottom:0px;">Rp. {{ $tourist_attractions -> ticket * $pax }}</p>
-                  <h4 style=" margin-bottom:0px;">Rp. {{ $tourist_attractions -> ticket * $pax * (100 - (int)$promo -> diskon) /100}}</h4>
-                  @endif
+
                   
                 </div>
               </div>

@@ -9,7 +9,9 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable =['tourist_attraction_id','uuid','name','phone_number','email','tanggal_pemesanan' ,'proof_of_payment_id', 'promo_id','is_verify','user_id'];
+   
+
+    protected $fillable =['tourist_attraction_id','uuid','name','phone_number','email','tanggal_pemesanan' ,'proof_of_payment_id','is_verify','user_id'];
     protected $casts = [
         'is_verify' => 'boolean',
     ];
@@ -25,7 +27,4 @@ class Ticket extends Model
         return $this -> belongsTo(ProofOfPayment::class);
     }
 
-    public function promo(){
-        return $this -> belongsTo(Promo::class);
-    }
 }

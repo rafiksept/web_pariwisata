@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\ProfileController;
 /*
@@ -56,6 +57,10 @@ Route::post('/create-order/{id}/{pax}',[TicketController::class, 'createOrder'])
 // Halaman Tourist Attraction
 Route::get('/tempat-wisata',[TouristAttractionController::class,'viewTouristAttraction']);
 Route::get('/tempat-wisata/{id}', [TouristAttractionController::class, 'detailTouristAttraction']) -> name('detailPariwisata');
+
+// Kuliner
+Route::get('/kuliner',[KulinerController::class,'viewKuliner']);
+Route::get('/kuliner/{id}', [KulinerController::class, 'detailKuliner']) -> name('detailKuliner');
 
 //post admin
 Route::get('/create-article',[ArticleController::class, 'createArticle']);

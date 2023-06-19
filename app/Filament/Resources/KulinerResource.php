@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EventResource\Pages;
-use App\Filament\Resources\EventResource\RelationManagers;
-use App\Models\Event;
+use App\Filament\Resources\KulinerResource\Pages;
+use App\Filament\Resources\KulinerResource\RelationManagers;
+use App\Models\Kuliner;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -21,10 +21,9 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\RichEditor;
 
-
-class EventResource extends Resource
+class KulinerResource extends Resource
 {
-    protected static ?string $model = Event::class;
+    protected static ?string $model = Kuliner::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -33,12 +32,8 @@ class EventResource extends Resource
         return $form
             ->schema([
                 Card::make() -> schema([
-                    TextInput::make('name') 
-                ->reactive()
-                ->afterStateUpdated(function (Closure $set, $state) {
-                    $set('slug', Str::slug($state));
-                })-> required(),
-                TextInput::make('slug') ->required(),
+                TextInput::make('name')-> required(),
+                TextInput::make('definition') ->required(),
                 RichEditor::make('description') ->required(),
                 FileUpload::make('image_post')->image() ->required()
                 ])
@@ -51,8 +46,7 @@ class EventResource extends Resource
             ->columns([
                 TextColumn::make('id') -> sortable(),
                 TextColumn::make('name')->limit(50) -> sortable(),
-                TextColumn::make('slug')->limit(50),
-                ImageColumn::make('image_post'),
+                ImageColumn::make('image_post')
             ])
             ->filters([
                 //
@@ -75,9 +69,9 @@ class EventResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListEvents::route('/'),
-            'create' => Pages\CreateEvent::route('/create'),
-            'edit' => Pages\EditEvent::route('/{record}/edit'),
+            'index' => Pages\ListKuliners::route('/'),
+            'create' => Pages\CreateKuliner::route('/create'),
+            'edit' => Pages\EditKuliner::route('/{record}/edit'),
         ];
     }    
 }

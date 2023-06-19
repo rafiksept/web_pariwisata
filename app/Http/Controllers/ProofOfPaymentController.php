@@ -28,19 +28,15 @@ class ProofOfPaymentController extends Controller
 
         $pop_id =  DB::table('proof_of_payments')->where('uuid', $code) -> get();
         $pax_order= DB::table('tickets')->where('proof_of_payment_id', $pop_id[0] -> id) -> get(); 
-        $promo = DB::table('promos')->where('id', $pax_order[0] -> promo_id) -> get();
+        
 
-        if (count($promo) != 0 ){
-            $kupon = $promo[0] -> diskon;
-        } else {
-            $kupon = 0;
-        }
+       
         DB::table('proof_of_payments')
             ->where('uuid', $code)
             ->update([
                 'type_payment' => $request -> type_payment,
                 'payment_number' => $request -> payment_number,
-                'price' => $tourist_attractions -> ticket * $pax * (100 - $kupon) / 100,
+                'price' => $tourist_attractions -> ticket * $pax,
                 'image_post' => $imageName,
 
             
@@ -48,10 +44,6 @@ class ProofOfPaymentController extends Controller
 
             return redirect('pesan-tiket/'.$id.'/'.$pax.'/'.$code)->with([
                 'success' => 'Bukti pembayaran berhasil dikirim'
-            ]);
-        
-        
-    
-
+            ]);    
     }
 }

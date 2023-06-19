@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promos', function (Blueprint $table) {
+        Schema::create('kuliners', function (Blueprint $table) {
             $table->id();
-            $table -> foreignId('tourist_attraction_id') -> constrained() -> onDelete('cascade');
-            $table->string('kode_promo')->unique();
             $table ->string('name');
-            $table->integer('diskon');
-            $table->integer('minimal_promo');
-            $table -> dateTime('expired');
+            $table->string('definition');
+            $table->text('description');
+            $table-> longText('image_post');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promos_model');
+        Schema::dropIfExists('kuliners');
     }
 };

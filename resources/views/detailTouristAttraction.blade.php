@@ -86,25 +86,6 @@
                             <button class="increment-button">+</button>
                         </div>
                     </div>
-                    
-                    <div class="kode-promo">
-                        <div class="judul-promo d-flex flex-row align-items-center">
-                            <h5>Kode Promo</h5>
-                            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill " style="margin-left: 5px;margin-bottom:8px" viewBox="0 0 16 16">
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                                
-                              </svg>
-                            </a>
-                            
-                        </div>
-                        <div class="pax d-flex flex-row">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-percent information-picture" viewBox="0 0 16 16">
-                                <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                              </svg>
-                            <input id="quantity1" name="quantity1" style="width: 120px">
-                        </div>
-                    </div>
-
                 </div>
                 
                 <div class="tombol d-flex justify-content py-3">
@@ -123,13 +104,8 @@
             value = 1;
           }
           document.getElementById('quantity').value = value;
-          var promo = document.querySelector('#quantity1');
-        promo.addEventListener('input', function(event) {
-                var kupon = event.target.value;
-                var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=" + kupon;
-                document.getElementById('tombol-ticket').setAttribute("href",linkTombol);
-         });
-         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=";
+          
+         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value;
          document.getElementById('tombol-ticket').setAttribute("href",linkTombol)
         }
         
@@ -142,27 +118,17 @@
           }
           document.getElementById('quantity').value = value;
 
-          var promo = document.querySelector('#quantity1');
-        promo.addEventListener('input', function(event) {
-                var kupon = event.target.value;
-                var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=" + kupon;
-                document.getElementById('tombol-ticket').setAttribute("href",linkTombol);
-         });
-         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=";
+          
+         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value;
          document.getElementById('tombol-ticket').setAttribute("href",linkTombol)
         }
         
         document.querySelector('.decrement-button').addEventListener('click', decreaseValue);
         document.querySelector('.increment-button').addEventListener('click', increaseValue);
 
-        var promo = document.querySelector('#quantity1');
-        promo.addEventListener('input', function(event) {
-                var kupon = event.target.value;
-                var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=" + kupon;
-                document.getElementById('tombol-ticket').setAttribute("href",linkTombol);
-         });
+        
 
-         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value + "?promo=";
+         var linkTombol = "http://" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/"+ "pesan-tiket" + "/" + {{$tourist_attractions -> id}} + "/" + document.getElementById('quantity').value ;
          document.getElementById('tombol-ticket').setAttribute("href",linkTombol)
 
         

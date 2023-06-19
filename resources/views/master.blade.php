@@ -82,10 +82,10 @@
                           <a class="nav-link active text-white" aria-current="page" href="/tempat-wisata">Tempat Wisata</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active text-white" aria-current="page" href="/kebudayaan">Event</a>
+                          <a class="nav-link active text-white" aria-current="page" href="/kebudayaan">Budaya</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active text-white" aria-current="page" href="/promo">Promo</a>
+                          <a class="nav-link active text-white" aria-current="page" href="/kuliner">Kuliner</a>
                       </li>
                       <li class="nav-item d-flex">
 
@@ -122,7 +122,7 @@
       <div class="hero" style="background-image: url('{{asset("image/kalibiru2.jpg")}}')">
           <div class="gambar-hitam">
             <div class="title-jumbotron w-100 h-100">
-                <h1 class="text-white">Selamat Datang di <span class="text-warning">Grobogan</span> </h1>
+                <h1 class="text-white" style="text-align: center;">Selamat Datang di Website Pariwisata Kabupaten <span class="text-warning">Grobogan</span> </h1>
                 <p class="text-white">Halo! Selamat datang di website pariwisata Grobogan, Eksplor lebih lanjut terkait pariwisata grobogan</p>
             </div>
           </div>
@@ -140,61 +140,6 @@
   @yield('content')
 
   <!--Fooster-->
-
-  <footer class="bg-dark text-white pt-5">
-    <div class="container text-center text-md-left">
-        <div class="row text-center text-md-left mb-5">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Pariwisata Grobongan</h5>
-                <p>Pariwisata Grobongan menyajikan wisata budaya yang berada di kebupaten Grobongan, disini kami menyediakan kemudahan untuk memesan tiket masuk wisata budaya kami</p>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Products</h5>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Kuliner</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Budaya</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Wisata</a>
-                </p>
-
-            </div>
-            <div class="col-md-3 col-lg-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">What's Happen</h5>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Promo</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Event</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Tiket</a>
-                </p>
-            </div>
-             <div class="col-md-3 col-lg-2 mx-auto mt-3">
-                 <h5 class="text-uppercase mb-4 height-3 font-weight-bold text-warning">Userful Links</h5>
-              <p>
-                  <a href="#" class="text-white" style="text-decoration: none;"><img src="house-door.svg" alt="">&ensp;Jln.Bnadung</a>
-              </p>
-              <p>
-                  <a href="#" class="text-white" style="text-decoration: none;"><img src="telephone-fill.svg">&ensp;+62 878 878 878</a>
-              </p>
-             
-             </div>
-
-        </div>
-        <div class="row mt-5">
-            <p>Copyright @2023 All Right reserved by:
-                <a href="#" style="text-decoration: none;">
-                <strong class="text-warning">PT. Pariwisata Grobongan</strong></a>
-            </p>
-         </div>
-    </div>
-    </div>
-
-</footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
