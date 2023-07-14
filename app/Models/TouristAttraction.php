@@ -10,8 +10,4 @@ class TouristAttraction extends Model
     use HasFactory;
 
     protected $fillable =['name','location','definition','description','ticket','slug','image_post'];
-
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
 }

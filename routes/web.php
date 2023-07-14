@@ -29,10 +29,6 @@ Route::post('/update-profile',[ProfileController::class,'updateProfile']) -> nam
 Route::get('/profile/edit-password',[ProfileController::class,'viewEditPassword']) -> middleware('auth');
 Route::get('/profile',[ProfileController::class,'viewProfile']) -> middleware('auth');
 
-// halaman menampilkan promo
-// halaman menampilkan promo
-Route::get('/promo',[PromoController::class,'viewPromo']);
-Route::get('/promo/{id}',[PromoController::class,'detailPromo']);
 
 //halaman menampilkan event
 Route::get('/kebudayaan',[EventController::class,'viewEvent']);

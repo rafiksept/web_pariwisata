@@ -9,7 +9,7 @@ class ProofOfPayment extends Model
 {
     use HasFactory;
 
-    protected $fillable =['uuid','type_payment','payment_number','image_post','price', 'is_verify'];
+    protected $fillable =['uuid','image_post','price', 'is_verify'];
     protected $casts = [
         'is_verify' => 'boolean',
     ];

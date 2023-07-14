@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TouristAttractionResource\Pages;
 use App\Filament\Resources\TouristAttractionResource\RelationManagers;
-use App\Filament\Resources\TouristAttractionResource\RelationManagers\PostsRelationManager;
 use App\Models\TouristAttraction;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -27,6 +26,8 @@ class TouristAttractionResource extends Resource
     protected static ?string $model = TouristAttraction::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    protected static ?string $navigationLabel = 'Tempat Wisata';
 
     public static function form(Form $form): Form
     {
@@ -74,7 +75,7 @@ class TouristAttractionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            PostsRelationManager::class 
+            
         ];
     }
     

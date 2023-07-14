@@ -9,6 +9,33 @@
 @section('css')
 <link href="{{ asset('css/touristAttractionPage.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+<style>
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a:hover {
+    background-color: #f5f5f5;
+}
+
+.pagination .current {
+    background-color: #337ab7;
+    color: #fff;
+    border-color: #337ab7;
+}
+
+</style>
 @endsection
 
  
@@ -56,6 +83,9 @@
             
           </div>
         @endforeach
+      </div>
+      <div class="pagination-links">
+        {{ $tourist_attractions->links("paginate") }}
     </div>
 </div>
 <div class="kotak"></div>

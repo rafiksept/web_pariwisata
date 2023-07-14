@@ -51,30 +51,11 @@
                                 </h6>
                                 <p>Pembayaran Tiket Dapat Dilakukan Melalui:</p>
                             <ul>
-                                <li>DANA <span class="ml-1">: 089672735548</span></li>
-                                <li>OVO <span class="ml-1">: 089672735548</span></li>
-                                <li>BNI <span class="ml-1">: 089672735548</span></li>
+                                <li>VA DANA <span class="ml-1">: 3901089505859637</span></li>
                             </ul>
                             </div>
                             @if(!$pop_id[0] -> is_verify)
                             <div class="form-group w-100">
-                                <div class="row my-4">
-                                    <div class="col">
-                                        <label class="mb-2">Tipe Pembayaran</label>
-                                        <select name="type_payment" class = "form-select" value="{{$pop_id[0] -> type_payment}}">
-                                            <option value="dana">Dana</option>
-                                            <option value="ovo">OVO</option>
-                                            <option value="BNI">BNI</option>
-                                        </select>
-                                            <small class="form-text ml-1">pilih tipe pembayaran yang sesuai</small>
-                                    </div>
-                                    <div class="col">
-                                        <label class="mb-2">Nomor Pembayaran</label>
-                                        <input type="text" class="form-control" name="payment_number" placeholder="Masukkan Nomor Pembayaran" value="{{$pop_id[0]  -> payment_number}}">
-                                        <small class="form-text ml-1">Masukkan nomor pembayaran yang sesuai</small>
-                                    </div>
-                                    
-                                </div>
                                 <div class="row">
                                     <label class="mb-2">Bukti Pembayaran Pembayaran</label>
                                     <div class="px-2"><input type="file" accept="image/png, image/jpeg" name="image" class="form-control" >
@@ -86,23 +67,7 @@
                              <div class="form-group w-100">
                                     
     
-                                <div class="row my-4">
-                                    <div class="col">
-                                        <label class="mb-2">Tipe Pembayaran</label>
-                                        <select name="type_payment" class = "form-select" value="{{$pop_id[0] -> type_payment}}" disabled>
-                                            <option value="dana">Dana</option>
-                                            <option value="ovo">OVO</option>
-                                            <option value="BNI">BNI</option>
-                                        </select>
-                                            <small class="form-text ml-1">pilih tipe pembayaran yang sesuai</small>
-                                    </div>
-                                    <div class="col">
-                                        <label class="mb-2">Nomor Pembayaran</label>
-                                        <input type="text" class="form-control" name="payment_number" placeholder="Masukkan Nomor Pembayaran" value="{{$pop_id[0]  -> payment_number}}" disabled>
-                                        <small class="form-text ml-1">Masukkan nomor pembayaran yang sesuai</small>
-                                    </div>
-                                    
-                                </div>
+              
                         </div>
                             @endif
                             

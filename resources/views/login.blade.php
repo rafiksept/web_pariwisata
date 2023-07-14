@@ -32,7 +32,6 @@
           <span></span>
           <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login">
         <div class="signup_link">
           Not a member? <a href="{{url('/register')}}">Signup</a>

@@ -32,6 +32,8 @@ class ProofOfPaymentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationLabel = 'Bukti Pembayaran';
+
     public static function form(Form $form): Form
     {
         $uuid = Str::random(10);
@@ -40,7 +42,6 @@ class ProofOfPaymentResource extends Resource
                 Card::make() -> schema([
                 TextInput::make('uuid') -> required() ->default($uuid) -> disabled(),
                 TextInput::make('type_payment')  ->required(),
-                TextInput::make('payment_number') ->required(),
                 TextInput::make('price') -> required() ->numeric(),
                 Toggle::make('is_verify'),
                 FileUpload::make('image_post')->image() ->required()->imagePreviewHeight('700'),
@@ -56,7 +57,6 @@ class ProofOfPaymentResource extends Resource
                 TextColumn::make('id') -> sortable(),
                 TextColumn::make('uuid') -> sortable(),
                 TextColumn::make('type_payment'),
-                TextColumn::make('payment_number'),
                 TextColumn::make('price'),
                 ImageColumn::make('image_post'),
                 ToggleColumn::make('is_verify'),

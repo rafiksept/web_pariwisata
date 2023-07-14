@@ -31,6 +31,8 @@ class TicketResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationLabel = 'Tiket';
+
     
 
     public static function form(Form $form): Form
@@ -47,7 +49,6 @@ class TicketResource extends Resource
                 TextInput::make('email')-> required(),
                 DatePicker::make('tanggal_pemesanan') -> required(),
                 Toggle::make('is_verify'),
-                Select::make('promo_id')->relationship('promo', 'id') ->nullable(),
                 Select::make('proof_of_payment_id')->relationship('proofOfPayment', 'uuid') ->nullable()
     
                 ])

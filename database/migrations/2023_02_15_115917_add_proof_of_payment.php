@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('proof_of_payments', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
-            $table ->string('type_payment') -> nullable();
-            $table->string('payment_number') -> nullable();
             $table-> longText('image_post') -> nullable();
             $table -> boolean('is_verify')->default(false);
             $table -> integer('price') -> nullable();
