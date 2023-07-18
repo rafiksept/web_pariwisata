@@ -173,5 +173,11 @@ class TicketController extends Controller
         return view('viewTiketByUser', ['tickets' => $tickets]);
     }
 
+    public function deleteTiket($id){
+        DB::table('tickets')->where('id', $id)->delete();
+
+        return redirect('/daftar-tiket');
+    }
+
 
 }

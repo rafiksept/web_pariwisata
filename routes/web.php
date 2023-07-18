@@ -43,6 +43,7 @@ Route::get('/chat-bot/pertanyaan/{jenis}',[ChatBotController::class, 'getQuestio
 Route::post('create-pop/{id}/{pax}/{code}', [ProofOfPaymentController::class, 'createProofOfPayment']) -> name('createPop') -> middleware('auth');
 
 // Halaman memesan form tiket
+Route::get('/hapus-tiket/{id}',[TicketController::class, 'deleteTiket']) -> name("deleteTiket")  -> middleware('auth');
 Route::get('/daftar-tiket', [TicketController::class, 'viewTiketByUser']);
 Route::post('/pesan-tiket/{id}/{pax}/{code}/edit', [TicketController::class, 'actionEditTicket'])->where(['id' => '[0-9]+', 'pax' => '[1-5]{1}'])-> name('actionEditTiket') -> middleware('auth');
 Route::get('/pesan-tiket/{id}/{pax}/{code}/edit', [TicketController::class, 'editTicket'])->where(['id' => '[0-9]+', 'pax' => '[1-5]{1}'])-> name('editTiket') -> middleware('checkisverify') -> middleware('auth');

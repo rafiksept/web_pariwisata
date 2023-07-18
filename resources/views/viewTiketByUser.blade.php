@@ -10,6 +10,40 @@
 <link href="{{ asset('css/touristAttractionPage.css') }}" rel="stylesheet">
 <link href="{{ asset('css/viewTiketByUser.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+<style>
+    /* Gaya CSS untuk latar belakang transparan */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    /* Gaya CSS untuk kotak konfirmasi */
+    .confirmation-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Gaya CSS untuk tombol */
+    .confirmation-buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .confirmation-buttons button {
+      margin-left: 10px;
+    }
+  </style>
 @endsection
 
  
@@ -61,6 +95,7 @@
                         'pax' => $ticket -> pax, 
                         'code' => $ticket -> proofOfPayment -> uuid
                         ])}}"><button class="">Detail</button></a>
+                    <a onclick="showConfirmation(<?= $ticket->id ?>)"><button class="konfirmasi">Hapus</button></a>
                 </div>
             </div>
         </div>
@@ -71,6 +106,30 @@
     </div>
 </div>
 <div class="kotak"></div>
+ <!-- Kotak konfirmasi tersembunyi -->
+ <div id="confirmationBox" class="overlay" style="display: none;">
+    <div class="confirmation-box">
+      <p>Apakah Anda yakin ingin menghapus?</p>
+      <div class="confirmation-buttons">
+        <a href="" class="tombol-hapus">
+            <button class="btn btn-danger">Ya</button>
+        </a>
+        <button onclick="hideConfirmation()" class="btn btn-primary">Tidak</button>
+      </div>
+    </div>
+  </div>
 <!--Page-->
- 
+<script>
+    function showConfirmation(id) {
+      // Tampilkan kotak konfirmasi
+      document.getElementById('confirmationBox').style.display = 'flex';
+      var tombolHapus = document.querySelector(".tombol-hapus")
+      tombolHapus.setAttribute('href', `/hapus-tiket/${id}`);
+    }
+
+    function hideConfirmation() {
+      // Sembunyikan kotak konfirmasi
+      document.getElementById('confirmationBox').style.display = 'none';
+    }
+  </script>
 @endsection

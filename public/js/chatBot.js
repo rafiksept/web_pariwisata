@@ -87,9 +87,9 @@ function pertanyaanBaru(a) {
                     <div class="chat-admin pt-2">
                     <div class="speech-bubble">
                     <span class="py-1 pertanyaan-pertama">Pilih pertanyaan di bawah ini agar kami dapat membantu mu!</span>
-                    <div class="pertanyaan w-100 py-1" id="2" name = "grobogan"><span class="text-primary">Pertanyaan terkait grobogan?</span></div>
-                    <div class="pertanyaan w-100 py-1" id="3" name ="tiket"><span class="text-primary">Pertanyaan terkait tiket?</span></div>
-                    <div class="pertanyaan w-100 py-1" id="4" name = "tempat wisata"><span class="text-primary">Pertanyaan terkait tempat wisata?</span></div>
+                    <div class="pertanyaan w-100 py-1" id="1" name = "grobogan"><span class="text-primary">Pertanyaan terkait grobogan?</span></div>
+                    <div class="pertanyaan w-100 py-1" id="2" name ="tiket"><span class="text-primary">Pertanyaan terkait tiket?</span></div>
+                    <div class="pertanyaan w-100 py-1" id="3" name = "tempat wisata"><span class="text-primary">Pertanyaan terkait tempat wisata?</span></div>
                     <div class="clock d-flex justify-content-end"><span>05:59</span></div>
                     </div>
                                     
