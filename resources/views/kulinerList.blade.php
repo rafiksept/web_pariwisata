@@ -45,9 +45,9 @@
  
 <div class="container tourist-attraction">
     <div class="title-content">
-        <h4>Tempat Wisata <span class="text-warning">#Grobogan</span></h4>
-        <p class="home">Cari tempat wisata yang menarik dan pesan tiket!</p>
-    </div>
+        <h4><span class="emoticon">&#9992; </span>Kuliner <span style = "color:#E4801A;">#Grobogan</span></h4>
+        <p class="home">Eksplorasi Kuliner dan Bagikan Pengalamanmu! </p>
+      </div>
     <div class="card-content d-flex flex-wrap justify-content-between">
         @foreach ( $kuliners as $kuliner)
         <div class="card card-home m-2 border-0 card-item" style="background-image: url('{{ asset('storage/'.$kuliner -> image_post) }}'); ">
