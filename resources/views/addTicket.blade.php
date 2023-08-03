@@ -81,27 +81,27 @@
           @endif
           <h5 class="mb-3 mt-4">Data Pengunjung</h5>
           @if ($edited)
-          @for ($i = 1; $i <= $pax ; $i++)
+          
           <div class="card mt-4" style="width: 100%;">
             <div class="card-body px-4 ">
               <div class="title-ta border-bottom py-2">
-                    <h5 class="card-title">Pax {{$i}}</h5>
+                    <h5 class="card-title">Pax</h5>
               </div>
               
               <div class="content-body py-3 d-flex">
                     <div class="form-group w-100">
                         <label for="exampleInputEmail1" class="mb-2">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="name[{{$i-1}}]" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap" value = "{{$pax_order[$i-1] -> name}}">
+                        <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap" value = "{{$pax_order[0] -> name}}">
                         <small class="form-text ml-1">(without title and punctuation)</small>
                         <div class="row mt-4">
                             <div class="col">
                               <label for="exampleInputEmail1"  class="mb-2">Nomor Telepon</label>
-                              <input type="text" class="form-control" name="phone_number[{{$i-1}}]" placeholder="Masukkan No Hp Aktif" value = "{{$pax_order[$i-1] -> phone_number}}">
+                              <input type="text" class="form-control" name="phone_number" placeholder="Masukkan No Hp Aktif" value = "{{$pax_order[0] -> phone_number}}">
                               <small class="form-text ml-1">(e.g. +62812345678, for Country Code (+62) and Mobile No. 0812345678</small>
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1" class="mb-2">Email Address</label>
-                                <input type="email" class="form-control" name="email[{{$i-1}}]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address" value = "{{$pax_order[$i-1] -> email}}">
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address" value = "{{$pax_order[0] -> email}}">
                                 <small class="form-text ml-1">e.g. email@example.com</small>
                             </div>
                         </div>
@@ -109,29 +109,27 @@
               </div>
             </div>
           </div>
-          @endfor
           @else
-          @for ($i = 1; $i <= $pax ; $i++)
           <div class="card mt-4" style="width: 100%;">
             <div class="card-body px-4 ">
               <div class="title-ta border-bottom py-2">
-                    <h5 class="card-title">Pax {{$i}}</h5>
+                    <h5 class="card-title">Pax</h5>
               </div>
               
               <div class="content-body py-3 d-flex">
                     <div class="form-group w-100">
                         <label for="exampleInputEmail1" class="mb-2">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="name[]" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap">
+                        <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap">
                         <small class="form-text ml-1">(without title and punctuation)</small>
                         <div class="row mt-4">
                             <div class="col">
                               <label for="exampleInputEmail1"  class="mb-2">Nomor Telepon</label>
-                              <input type="text" class="form-control" name="phone_number[]" placeholder="Masukkan No Hp Aktif">
+                              <input type="text" class="form-control" name="phone_number" placeholder="Masukkan No Hp Aktif">
                               <small class="form-text ml-1">(e.g. +62812345678, for Country Code (+62) and Mobile No. 0812345678</small>
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1" class="mb-2">Email Address</label>
-                                <input type="email" class="form-control" name="email[]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address">
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address">
                                 <small class="form-text ml-1">e.g. email@example.com</small>
                             </div>
                         </div>
@@ -139,7 +137,7 @@
               </div>
             </div>
           </div>
-          @endfor
+        
               
           @endif
 

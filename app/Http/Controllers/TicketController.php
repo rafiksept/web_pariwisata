@@ -32,32 +32,34 @@ class TicketController extends Controller
     public function createOrder(Request $request, $id, $pax){
         
 
-        // $validatedData = $request->validate([
-        //     'name' => ['required'],
-        //     'phone_number' => ['required','numeric'],
-        //     'email' => ['required']
-        // ]);
-        $rules = [
-            'name.*' => 'required|string|max:255',
-            'email.*' => 'required|email|max:255',
-            'phone.*' => 'required|numeric|max:20',
-            'tanggal-pemesanan.*' => 'required|date|after_or_equal:today',
-        ];
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'phone_number' => ['required','numeric'],
+            'email' => ['required']
+        ]);
+        // $rules = [
+        //     'name.*' => 'required|string|max:255',
+        //     'email.*' => 'required|email|max:255',
+        //     'phone.*' => 'required|numeric|max:20',
+        //     'tanggal-pemesanan.*' => 'required|date|after_or_equal:today',
+        // ];
     
-        $messages = [
-            'name.*.required' => 'The name field is required.',
-            'email.*.required' => 'The email field is required.',
-            'phone.*.required' => 'The phone field is required.',
-            'tanggal-pemesanan.*.required' => "Date is required"
-        ];
+        // $messages = [
+        //     'name.*.required' => 'The name field is required.',
+        //     'email.*.required' => 'The email field is required.',
+        //     'phone.*.required' => 'The phone field is required.',
+        //     'tanggal-pemesanan.*.required' => "Date is required"
+        // ];
+
+       
     
-        $validator = Validator::make($request->all(), $rules, $messages);
+        // $validator = Validator::make($request->all(), $rules, $messages);
     
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
 
         $uuid = Str::random(10);
 
@@ -70,20 +72,32 @@ class TicketController extends Controller
 
         $pop_id = DB::table('proof_of_payments')->where('uuid', $uuid)->value('id'); 
 
-        $tiket = $request -> all();
-        
-         foreach ($tiket['name'] as $key => $value) {
+        for ($i=1; $i <= $pax ; $i++) { 
             $str = Str::random(10);
             Ticket::create([
                 'tourist_attraction_id' => $id,
                 'user_id' =>  Auth::user()->id,
                 'uuid' => $str,
-                'name' => $value,
-                'email' => $tiket['email'][$key],
-                'phone_number' => $tiket['phone_number'][$key],
+                'name' => $request -> input('name'),
+                'email' => $request -> input('email'),
+                'phone_number' => $request -> input('phone_number'),
                 'tanggal_pemesanan' =>  $request -> input('tanggal-pemesanan'),
                 'proof_of_payment_id' => $pop_id
-            ]);}
+            ]);
+        }
+        
+        //  foreach ($tiket['name'] as $key => $value) {
+            
+        //     Ticket::create([
+        //         'tourist_attraction_id' => $id,
+        //         'user_id' =>  Auth::user()->id,
+        //         'uuid' => $str,
+        //         'name' => $value,
+        //         'email' => $tiket['email'][$key],
+        //         'phone_number' => $tiket['phone_number'][$key],
+        //         'tanggal_pemesanan' =>  $request -> input('tanggal-pemesanan'),
+        //         'proof_of_payment_id' => $pop_id
+        //     ]);}
         return redirect('pesan-tiket/'.$id.'/'.$pax.'/'.$uuid);
 
         
@@ -113,43 +127,45 @@ class TicketController extends Controller
 
     public function actionEditTicket(Request $request,$id, $pax, $code){
 
-        $rules = [
-            'name.*' => 'required|string|max:255',
-            'email.*' => 'required|email|max:255',
-            'phone.*' => 'required|numeric|max:20',
-        ];
+        // $rules = [
+        //     'name.*' => 'required|string|max:255',
+        //     'email.*' => 'required|email|max:255',
+        //     'phone.*' => 'required|numeric|max:20',
+        // ];
     
-        $messages = [
-            'name.*.required' => 'The name field is required.',
-            'email.*.required' => 'The email field is required.',
-            'phone.*.required' => 'The phone field is required.',
-        ];
+        // $messages = [
+        //     'name.*.required' => 'The name field is required.',
+        //     'email.*.required' => 'The email field is required.',
+        //     'phone.*.required' => 'The phone field is required.',
+        // ];
+
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'phone_number' => ['required','numeric'],
+            'email' => ['required']
+        ]);
     
-        $validator = Validator::make($request->all(), $rules, $messages);
+        // $validator = Validator::make($request->all(), $rules, $messages);
     
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
 
 
         $pop_id = DB::table('proof_of_payments')->where('uuid', $code) -> get(); 
         $ticket = DB::table('tickets')
         ->where('proof_of_payment_id', $pop_id[0] -> id)
         ->get();
-        $tiketreq = $request->all();
-        $names = $tiketreq['name'];
-        $email = $tiketreq['email'];
-        $phone = $tiketreq['phone_number'];
 
         for ($i = 0; $i < $pax; $i++) {
             DB::table('tickets')
             ->where('uuid', $ticket[$i] -> uuid)
             ->update([
-                'name' => $names[$i],
-                'email' => $email[$i],
-                'phone_number' => $phone[$i],
+                'name' => $request -> input('name'),
+                'email' => $request -> input('email'),
+                'phone_number' => $request -> input('phone_number'),
             ]);
         }
 

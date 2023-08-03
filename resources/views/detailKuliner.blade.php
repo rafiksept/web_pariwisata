@@ -24,8 +24,8 @@
                 </div>
             </div>
             
-            <div class="gambar-wisata mt-3 w-100" style="height: 650px">
-                <img src='{{ asset('storage/'.$kuliners -> image_post) }}' alt="{{$kuliners -> name}}" class = "w-100 h-100 rounded">
+            <div class="gambar-wisata w-100 mt-3" style="height: 400px; display:flex;align-items:center;justify-content: center;">
+                <img src='{{ asset('storage/'.$kuliners -> image_post) }}' alt="{{$kuliners -> name}}" class = "h-100 rounded">
             </div>
 
             <div class="informasi-singkat mt-5">

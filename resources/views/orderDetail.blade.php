@@ -133,7 +133,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                   </svg>
-                                  <p>089672735548 (Contact Person) </p>
+                                  <p>0896xxxx (Contact Person) </p>
                             </div>
                         </div>
                         <h6 class=""><a href="" class="text-decoration-none text-primary">View Details</a></h6>
@@ -142,27 +142,27 @@
                 </div>
             </div>
             <h5 class="mb-3 mt-4">Data Pengunjung</h5>
-            @for ($i = 1; $i <= $pax ; $i++)
+            
             <div class="card mt-4" style="width: 100%;">
               <div class="card-body px-4 ">
                 <div class="title-ta border-bottom py-2">
-                      <h5 class="card-title">Pax {{$i}}</h5>
+                      <h5 class="card-title"></h5>
                 </div>
                 
                 <div class="content-body py-3 d-flex">
                       <div class="form-group w-100">
                           <label for="exampleInputEmail1" class="mb-2">Nama Lengkap</label>
-                          <input type="text" class="form-control" name="name[]" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap" value="{{$pax_order[$i-1] -> name}}" disabled>
+                          <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap" value="{{$pax_order[0] -> name}}" disabled>
                           <small class="form-text ml-1">(without title and punctuation)</small>
                           <div class="row mt-4">
                               <div class="col">
                                 <label for="exampleInputEmail1"  class="mb-2">Nomor Telepon</label>
-                                <input type="text" class="form-control" name="phone_number[]" placeholder="Masukkan No Hp Aktif" value="{{$pax_order[$i-1] -> phone_number}}" disabled>
+                                <input type="text" class="form-control" name="phone_number" placeholder="Masukkan No Hp Aktif" value="{{$pax_order[0] -> phone_number}}" disabled>
                                 <small class="form-text ml-1">(e.g. +62812345678, for Country Code (+62) and Mobile No. 0812345678</small>
                               </div>
                               <div class="col">
                                   <label for="exampleInputEmail1" class="mb-2">Email Address</label>
-                                  <input type="email" class="form-control" name="email[]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address" value="{{$pax_order[$i-1] -> email}}" disabled>
+                                  <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email Address" value="{{$pax_order[0] -> email}}" disabled>
                                   <small class="form-text ml-1">e.g. email@example.com</small>
                               </div>
                           </div>
@@ -170,7 +170,7 @@
                 </div>
               </div>
             </div>
-            @endfor
+     
             @if (!$pop_id[0] -> is_verify)
             <div class="tombol d-flex justify-content-end" style="width: 100%">
                 <a href="{{route('editTiket',['id' => $tourist_attractions -> id, 'pax' => $pax, 'code' => $code ])}}">
