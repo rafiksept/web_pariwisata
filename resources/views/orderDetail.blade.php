@@ -129,6 +129,9 @@
                                   </svg>
                                   <p>{{$pax}} Pengunjung</p>
                             </div>
+                    
+                        </div>
+                    
                     </div>
                   </div>
                 </div>
