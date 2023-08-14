@@ -24,8 +24,8 @@
                 </div>
             </div>
             
-            <div class="gambar-wisata mt-3  w-90" style="height: 500px; display:flex;align-items:center;justify-content: center;">
-                <img src='{{ asset('storage/'.$events -> image_post) }}' alt="{{$events -> name}}" class = "h-100 rounded">
+            <div class="gambar-wisata mt-3 w-100" style=" display:flex;align-items:center;justify-content: center;">
+                <img src='{{ asset('storage/'.$events -> image_post) }}' alt="{{$events -> name}}" class = " rounded" style="height:400px; width:850px;">
             </div>
 
             <div class="informasi-singkat mt-5">
