@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="gambar-wisata mt-3 w-100" style="height: 500px; display:flex;align-items:center;justify-content: center;">
                 <img src='{{ asset('storage/'.$tourist_attractions -> image_post) }}' alt="{{$tourist_attractions -> name}}" class = "h-100 rounded">
             </div>
