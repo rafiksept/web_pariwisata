@@ -60,7 +60,7 @@
                           </div>
                           
                       </div>
-                      <h6 class=""><a href="" class="text-decoration-none text-primary">View Details</a></h6>
+    
                   </div>
                 </div>
               </div>
